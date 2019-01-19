@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Sus Notes</title>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css">
+		<script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+
+	</head>
+
+	<body>
+
+		<section class="section" style="width:100% margin:0; padding:0;">
+			<div style="width:100% margin:0; padding:0; height:15px; background-color:#1d1e1f;"></div>
+		</section>
+
+		<section class="section" style="padding-right:20px; padding-left:20px;">
+			<div class="container">
+				<div class="columns">
+
+					<div class="column is-one-third"></div>
+					<div class="column is-one-third">
+
+						<h1 class="title is-1">
+	        				Sad Notes 🎵
+	      				</h1>
+
+					</div>
+					<div class="column is-one-third" style="padding: 0;"></div>
+
+	      		</div>
+    		</div>
+  		</section>
+
+  		<section class="section" style="padding-right:20px; padding-left:20px; padding-top:0px">
+  			<div class="container">
+  				<div class="columns">
+  					<div class="column is-one-third"></div>
+  					<div class="column is-one-third">
+  						
+  						<form action="/posts/new" method="POST">
+  							<div class="field">
+					            <textarea class="textarea" name="message" placeholder="Sing" required></textarea>
+					        </div>
+							<button class="button is-white is-large">
+								<figure class="image is-32x32">
+								  <img class="is-rounded" src="https://images.genius.com/b90ca12c2fb97fde6ac68d0a370f7b46.1000x1000x1.jpg">
+								</figure>
+							</button>
+						</form>
+
+  					</div>
+  					<div class="column is-one-third" style="padding:0;"></div>
+  				</div>
+  			</div>
+  		</section>
+
+  		<section class="section" style="padding-right:20px; padding-left:20px; padding-top:0px">
+  			<div class="container">
+  				<div class="columns">
+  					<div class="column is-one-third"></div>
+  					<div class="column is-one-third">
+
+  						<h4 class="title is-4">
+	        				Listen
+	      				</h4>
+  						
+  						<% posts.forEach(function(post){ %>
+							<div class="box" style="padding-bottom:5px;">
+								<p style="margin-bottom:5px; margin-top:5px;"><%= post.value.message %></p>
+								<form action="/posts/<%= post.key %>" method="POST" style="display:inline;">
+									<button class="button is-white" style="padding-top:0px; padding-left:0px; padding-right:0px; margin-top:0px;">😥</button>
+								</form>
+								<p style="display: inline; padding-left:0;" class="tag is-white"><%= post.value.upvotes %></p>
+							</div>
+						<% }); %>
+  						
+  					</div>
+  					<div class="column is-one-third"></div>
+  				</div>
+  			</div>
+  		</section>
+
+  	</body>
+
+</html>
